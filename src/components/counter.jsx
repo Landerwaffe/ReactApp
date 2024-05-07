@@ -7,6 +7,11 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"],
   };
 
+  constructor() {
+    super();
+    this.handleIncrement = this.handleIncrement.bind(this);
+  }
+
   styles = {
     fontSize: 10,
     fontWeight: "bold",
@@ -24,14 +29,25 @@ class Counter extends Component {
     );
   }
 
+  handleIncrement = (product) => {
+    console.log("Increment Clicked", this);
+    console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     return (
       <React.Fragment>
         {/* <img src={this.state.imageUrl} alt="" /> */}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={() => this.handleIncrement(product)}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
         {this.state.tags.length == 0 && "Please Create a new tag!"}
-        {this.renderTags()}
+        {/* {this.renderTags()} */}
       </React.Fragment>
     );
   }
