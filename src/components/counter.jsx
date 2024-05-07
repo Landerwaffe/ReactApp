@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = {
-    count: 0,
-    imageUrl: "https://picsum.photos/200",
-    tags: ["tag1", "tag2", "tag3"],
-  };
+  state = {};
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: props.value,
+      tags: ["tag1", "tag2", "tag3"],
+    };
     this.handleIncrement = this.handleIncrement.bind(this);
   }
 
@@ -40,6 +40,8 @@ class Counter extends Component {
   };
 
   render() {
+    console.log("props", this.props);
+
     return (
       <React.Fragment>
         {/* <img src={this.state.imageUrl} alt="" /> */}
