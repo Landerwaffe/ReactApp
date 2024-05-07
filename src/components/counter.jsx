@@ -53,6 +53,12 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <button
+          onClick={this.props.onDelete}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
         {this.state.tags.length == 0 && "Please Create a new tag!"}
         {/* {this.renderTags()} */}
       </React.Fragment>
